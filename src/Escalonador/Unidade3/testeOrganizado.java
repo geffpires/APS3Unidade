@@ -71,6 +71,15 @@ class testeOrganizado {
 				+ "P3 (Esperando)\n"
 				+ "    Tick: 0\n"
 				+ "    Quantium: 3"));
+		e.avancarTick();
+		e.avancarTick();
+		e.avancarTick();
+		e.avancarTick();
+		assertEquals(e.getStatus(),("Status: P2 (Executando)\n"
+				+ "P3 (Esperando)\n"
+				+ "P1 (Esperando)\n"
+				+ "    Tick: 4\n"
+				+ "    Quantium: 3"));
 	}
 	@Test//T7
 	public void addProcessoTick0ETick3() {
@@ -120,6 +129,11 @@ class testeOrganizado {
 		assertEquals(e.getStatus(),"Status: P1 (Executando)\n"
 				+ "    Tick: 0\n"
 				+ "    Quantium: 3");
+		e.avancarTick();
+		assertEquals(e.getStatus(),"Status: P1 (Executando)\n"
+				+ "    Tick: 1\n"
+				+ "    Quantium: 3");
+		
 	}
 	@Test//10
 	public void estourarQuantDiferente() {
@@ -147,10 +161,15 @@ class testeOrganizado {
 		assertEquals(e.getStatus(),"Status: P1 (Executando)\n"
 		+ "    Tick: 2\n"
 		+ "    Quantium: 3");
+		e.finalizarProcesso("P1");
+		e.avancarTick();
+		assertEquals(e.getStatus(),"Status: Nenhum processo\n"
+		+ "    Tick: 3\n"
+		+ "    Quantium: 3");
+		e.avancarTick();
 		e.addProcesso(new Processo("P2"));
-		assertEquals(e.getStatus(),"Status: P1 (Executando)\n"
-				+ "P2 (Esperando)\n"
-				+ "    Tick: 2\n"
+		assertEquals(e.getStatus(),"Status: P2 (Executando)\n"
+				+ "    Tick: 4\n"
 				+ "    Quantium: 3");
 	}
 	@Test//T12
