@@ -13,8 +13,7 @@ class EscalonadorTest {
 		assertEquals(e.getStatus(),("Status: Nenhum processo\n"
 				+ "    Tick: 0\n"
 				+ "    Quantium: 3"));
-		assertEquals(e.estourouQuantium1(e.avancarTick()),false);
-	}
+			}
 	@Test//T2
 	public void tickIncrementou() {
 		Escalonador e = new Escalonador(3);
@@ -70,7 +69,7 @@ class EscalonadorTest {
 		e.avancarTick();
 		e.avancarTick();
 		e.avancarTick();
-		assertEquals(e.estourouQuantium1(e.avancarTick()), true);
+	
 	}
 	@Test//T7
 	public void doisProcessoFinaliza1ExecutaOutro() {
@@ -240,8 +239,7 @@ class EscalonadorTest {
 				+ "    Quantium: 3");
 		
 		e.avancarTick();	
-		assertEquals(e.estourouQuantium1(e.avancarTick()), true);
-
+		
 		
 		
 	}

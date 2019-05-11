@@ -55,11 +55,11 @@ public class Escalonador {
 	public int getTick() {
 		return tick;
 	}
-	public int avancarTick() {
+	public void avancarTick() {
 		
 		this.intercalaProcesso();
 		this.tick++;
-		return tick;
+		
 	}
 	public void intercalaProcesso() {
 		if(this.haProcessoEsperando()) {
@@ -69,14 +69,7 @@ public class Escalonador {
 			}
 		}
 	}
-	/* Metodo verificação de estourou */
-	public boolean estourouQuantium1(int tick) {
-		if(tick > this.quantium) {
-			return true;
-		}
-		return false;
-		
-	}
+	
 	public boolean estourouQuantium() {
 		if (this.executando.getQantTickNoEscalonador()>this.quantium) {
 			return true;
